@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-itens-center">
+  <div>
+    <h1>Restaurants</h1>
+  </div>
+  <div>
+    <%= link_to '+ restaurant', new_restaurant_path, class: 'btn btn-outline-primary' %>
+  </div>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Category</th>
+        <th>Phone</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.name %></td>
+          <td><%= restaurant.address %></td>
+          <td><%= restaurant.category.capitalize %></td>
+          <td><%= restaurant.phone_number %></td>
+          <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+</div>
+
